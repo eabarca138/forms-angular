@@ -1,0 +1,19 @@
+<label class="form-label">{{ label }}</label>
+<input formControlName="{{ name }}" type="{{ type }}" class="form-control" />
+
+<div
+  *ngIf="name == 'email' ? 
+(loginForm?.controls?.['email']?.errors?.['required'] && loginForm?.controls?.['email']?.dirty) 
+: (loginForm?.controls?.['password']?.errors?.['required'] && loginForm?.controls?.['password']?.dirty)">
+  <small class="error">Campo requerido</small>
+</div>
+<div
+  *ngIf="name == 'email' && loginForm?.controls?.['email']?.errors?.['pattern'] && true"
+>
+  <small class="error">Formato incorrecto</small>
+</div>
+<div
+  *ngIf="name == 'password' && loginForm?.controls?.['password']?.errors?.['minlength'] && true"
+>
+  <small class="error">El campo debe tener un mínimo de 4 caracteres</small>
+</div>

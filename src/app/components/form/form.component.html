@@ -1,0 +1,15 @@
+<form [formGroup]="loginForm" class="container mt-5 formulario" >
+    <div class="mb-4">
+        <app-input [loginForm]="loginForm" [name]="'email'" [label]="'Correo electrónico:'" [type]="'email'"></app-input>
+    </div>
+    <div class="mb-4">
+        <app-input [loginForm]="loginForm" [name]="'password'" [label]="'Contraseña:'" [type]="'password'"></app-input>
+    </div>
+    
+    <div class="mb-3">
+        <input formControlName="remember" type="checkbox" class="form-check-input">
+        <label class="form-check-label ms-1">Recordar contraseña</label>
+    </div>
+
+    <button [disabled]="loginForm.status == 'INVALID'" (click)="login()" type="button" class="btn btn-primary d-block">Iniciar sesión</button>
+</form>
